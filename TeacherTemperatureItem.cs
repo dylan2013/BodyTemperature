@@ -84,11 +84,24 @@ namespace BodyTemperature
                     //將資料加入ListView
                     subItem.Tag = record;
 
-                    if (record.BodyTemperature >= 37.0)
+                    if (record.MeasurementMethod == "額溫")
                     {
-                        foreach (ListViewItem.ListViewSubItem sub in subItem.SubItems)
+                        if (record.BodyTemperature >= 37.5)
                         {
-                            sub.BackColor = Color.LightCoral;
+                            foreach (ListViewItem.ListViewSubItem sub in subItem.SubItems)
+                            {
+                                sub.BackColor = Color.LightCoral;
+                            }
+                        }
+                    }
+                    else if (record.MeasurementMethod == "耳溫")
+                    {
+                        if (record.BodyTemperature >= 38)
+                        {
+                            foreach (ListViewItem.ListViewSubItem sub in subItem.SubItems)
+                            {
+                                sub.BackColor = Color.LightCoral;
+                            }
                         }
                     }
 

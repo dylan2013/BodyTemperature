@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\ischool\ischool_DEV\addmodules\BodyTemperature\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -100,6 +100,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectStudentForm.Designer.cs">
+      <DependentUpon>SelectStudentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="tools\DetailContentBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,10 +175,19 @@
     <Content Include="Library\K12.Presentation.dll" />
     <Content Include="Library\K12.Presentation.pdb" />
     <Content Include="Library\K12.Presentation.xml" />
+    <None Include="Resources\barcode_search_128.png" />
+    <None Include="Resources\barcode-scanner.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="EditTmperatureForm.resx">
       <DependentUpon>EditTmperatureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectStudentForm.resx">
+      <DependentUpon>SelectStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentTemperatureItem.resx">
       <DependentUpon>StudentTemperatureItem.cs</DependentUpon>

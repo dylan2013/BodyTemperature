@@ -38,6 +38,7 @@
             this.btnDelete = new DevComponents.DotNetBar.ButtonX();
             this.btnEdit = new DevComponents.DotNetBar.ButtonX();
             this.btnNew = new DevComponents.DotNetBar.ButtonX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.SuspendLayout();
             // 
             // listView
@@ -84,13 +85,11 @@
             // 
             // columnHeader6
             // 
-            this.columnHeader6.DisplayIndex = 5;
             this.columnHeader6.Text = "地點";
             this.columnHeader6.Width = 80;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.DisplayIndex = 4;
             this.columnHeader5.Text = "備註";
             this.columnHeader5.Width = 120;
             // 
@@ -99,7 +98,7 @@
             this.btnDelete.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDelete.AutoSize = true;
             this.btnDelete.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDelete.Location = new System.Drawing.Point(462, 180);
+            this.btnDelete.Location = new System.Drawing.Point(462, 201);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 25);
             this.btnDelete.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -112,7 +111,7 @@
             this.btnEdit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnEdit.AutoSize = true;
             this.btnEdit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnEdit.Location = new System.Drawing.Point(381, 180);
+            this.btnEdit.Location = new System.Drawing.Point(381, 201);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 25);
             this.btnEdit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -125,7 +124,7 @@
             this.btnNew.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnNew.AutoSize = true;
             this.btnNew.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNew.Location = new System.Drawing.Point(300, 180);
+            this.btnNew.Location = new System.Drawing.Point(300, 201);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 25);
             this.btnNew.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -133,16 +132,31 @@
             this.btnNew.Text = "新增";
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // labelX1
+            // 
+            this.labelX1.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.Class = "";
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(13, 171);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(336, 21);
+            this.labelX1.TabIndex = 7;
+            this.labelX1.Text = "*.依中央流行疫情指揮中心定義 額溫37.5 耳溫38 為發燒";
+            // 
             // TeacherTemperatureItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelX1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.listView);
             this.Name = "TeacherTemperatureItem";
-            this.Size = new System.Drawing.Size(550, 220);
+            this.Size = new System.Drawing.Size(550, 240);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,5 +174,6 @@
         private DevComponents.DotNetBar.ButtonX btnDelete;
         private DevComponents.DotNetBar.ButtonX btnEdit;
         private DevComponents.DotNetBar.ButtonX btnNew;
+        private DevComponents.DotNetBar.LabelX labelX1;
     }
 }

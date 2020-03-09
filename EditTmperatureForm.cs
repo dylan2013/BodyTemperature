@@ -18,7 +18,7 @@ namespace BodyTemperature
 
         StudentRecord student;
         TeacherRecord teacher;
-        BodyTmperature _BT;
+        public BodyTmperature _BT;
 
         public EditTmperatureForm(tool.BodyState state, int ref_id)
         {
@@ -26,7 +26,7 @@ namespace BodyTemperature
 
             _state = state;
             _ref_id = ref_id;
-
+            dateTimeInput1.Value = DateTime.Now;
             if (_ref_id == 0)
             {
                 btnSave.Enabled = false;
@@ -40,6 +40,7 @@ namespace BodyTemperature
             _state = state;
             _ref_id = ref_id;
             _BT = BT;
+            dateTimeInput1.Value = DateTime.Now;
 
             BindData();
 
@@ -84,6 +85,7 @@ namespace BodyTemperature
                 lbHelp.Text = string.Format("姓名「{0}」暱稱「{1}」", teacher.Name, teacher.Nickname);
             }
 
+
         }
 
         private void BindData()
@@ -111,16 +113,16 @@ namespace BodyTemperature
                 {
                     bt.ObjID = _ref_id;
                     bt.BodyTag = _state.ToString();
-                    bt.OccurDate = DateTime.Now;
                 }
 
+                bt.OccurDate = dateTimeInput1.Value;
                 bt.BodyTemperature = double.Parse(tbTmperature.Text);
                 bt.Category = cbCategory.Text;
 
                 if (checkBoxX1.Checked)
                     bt.MeasurementMethod = "額溫";
                 else
-                    bt.MeasurementMethod = "入耳式";
+                    bt.MeasurementMethod = "耳溫";
 
                 bt.Location = cbLocation.Text;
 
@@ -128,6 +130,8 @@ namespace BodyTemperature
                 bt.Remark = tbRemark.Text;
 
                 bt.Save();
+
+                _BT = bt;
 
                 StringBuilder sb_log = new StringBuilder();
                 sb_log.AppendLine(lbHelp.Text);
@@ -146,12 +150,24 @@ namespace BodyTemperature
                 }
 
                 if (_state == tool.BodyState.Student)
-                    FISCA.Features.Invoke(tool.URL學生體溫記錄);
+                {
+                    if (tool.CheckFeature(tool.URL學生體溫記錄))
+                    {
+                        FISCA.Features.Invoke(tool.URL學生體溫記錄);
+                    }
+                }
                 else
-                    FISCA.Features.Invoke(tool.URL教師體溫記錄);
+                {
+                    if (tool.CheckFeature(tool.URL教師體溫記錄))
+                    {
+                        FISCA.Features.Invoke(tool.URL教師體溫記錄);
+                    }
+                }
 
 
                 MsgBox.Show("儲存成功");
+
+                this.Close();
 
             }
             else

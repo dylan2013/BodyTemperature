@@ -31,7 +31,7 @@ namespace BodyTemperature
         public double BodyTemperature { get; set; }
 
         /// <summary>
-        /// 秖代よΑ(肂放,φΑ)
+        /// 秖代よΑ(肂放,φ放)
         /// </summary>
         [Field(Field = "measurement_method", Indexed = false)]
         public string MeasurementMethod { get; set; }
@@ -49,7 +49,7 @@ namespace BodyTemperature
         public string Location { get; set; }
 
         /// <summary>
-        /// 祅魁ら戳(yyyy/MM/dd HH:mm)
+        /// 秖代ら戳(yyyy/MM/dd HH:mm)
         /// </summary>
         [Field(Field = "occur_date", Indexed = false)]
         public DateTime OccurDate { get; set; }
