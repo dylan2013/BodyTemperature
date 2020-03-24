@@ -60,7 +60,20 @@ namespace BodyTemperature
         [Field(Field = "remark", Indexed = false)]
         public string Remark { get; set; }
 
+        /// <summary>
+        /// ²L¼h½Æ»sStudentCompetition
+        /// </summary>
+        public BodyTmperature CopyExtension()
+        {
+            return (BodyTmperature)this.MemberwiseClone();
+        }
 
+        public void NowClone()
+        {
+            bt = this.CopyExtension();
+        }
+
+        public BodyTmperature bt { get; set; }
 
     }
 

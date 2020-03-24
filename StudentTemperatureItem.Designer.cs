@@ -140,9 +140,10 @@
             // 
             this.labelX1.BackgroundStyle.Class = "";
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.labelX1.Location = new System.Drawing.Point(13, 171);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(336, 21);
+            this.labelX1.Size = new System.Drawing.Size(338, 21);
             this.labelX1.TabIndex = 8;
             this.labelX1.Text = "*.依中央流行疫情指揮中心定義 額溫37.5 耳溫38 為發燒";
             // 

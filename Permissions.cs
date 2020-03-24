@@ -42,5 +42,23 @@ namespace BodyTemperature
                 return FISCA.Permission.UserAcl.Current[學生體溫紀錄].Executable;
             }
         }
+
+        public static string 匯出學生體溫紀錄 { get { return "BodyTemperature.Student.ExportBodyTemprtature"; } }
+        public static bool 匯出學生體溫紀錄權限
+        {
+            get
+            {
+                return FISCA.Permission.UserAcl.Current[匯出學生體溫紀錄].Executable;
+            }
+        }
+
+        public static string 匯入學生體溫紀錄 { get { return "BodyTemperature.Student.ImportBodyTemprtature"; } }
+        public static bool 匯入學生體溫紀錄權限
+        {
+            get
+            {
+                return FISCA.Permission.UserAcl.Current[匯入學生體溫紀錄].Executable;
+            }
+        }
     }
 }

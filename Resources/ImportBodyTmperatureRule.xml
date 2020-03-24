@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="format.xsl" ?>
+<ValidateRule>
+  <DuplicateDetection>
+    <Detector Name="PrimaryKey1">
+      <Field Name="學號"/>
+      <Field Name="量測日期"/>
+      <Field Name="類別"/>
+    </Detector>
+  </DuplicateDetection>
+  <FieldList>
+    <Field Required="True" Name="學號" Description="學生的學號">
+      <Validate AutoCorrect="False" Description="「學號」不允許空白。" ErrorType="Error" Validator="不可空白" When=""/>
+      <Validate AutoCorrect="False" Description="「學號」長度必須小於12個文字。" ErrorType="Error" Validator="文字12" When=""/>
+      <Validate AutoCorrect="False" Description="「學號」不存在於系統中。" ErrorType="Error" Validator="學號是否存在系統" When=""/>
+      <Validate AutoCorrect="False" Description="「學號」建議使用英文數字組合(不包含空白)。" ErrorType="Warning" Validator="多個英數字元" When=""/>
+      <Validate AutoCorrect="False" Description="「學號」於系統內有多名學生。" ErrorType="Error" Validator="學號是否重覆" When=""/>
+    </Field>
+    <!--<Field Required="True" Name="對象" Description="本紀錄之對象是老師或學生">
+      <Validate AutoCorrect="False" Description="「對象」只可以是「學生」或「老師」。" ErrorType="Error" Validator="對象列舉" When=""/>
+    </Field> -->
+    <Field Required="True" Name="體溫" Description="學生之體溫紀錄">
+      <Validate AutoCorrect="False" Description="「體溫」必須為數字(可包含小數點)。" ErrorType="Error" Validator="Decimal極限" When=""/>
+    </Field>
+    <Field Required="True" Name="量測方式" Description="量測方式">
+      <Validate AutoCorrect="False" Description="「量測方式」只可以是「額溫」或「耳溫」。" ErrorType="Error" Validator="量測方式列舉" When=""/>
+    </Field>
+    <Field Required="True" Name="量測日期" Description="量測體溫的「量測日期」匯入資料將只有「年/月/日」不含「時:分」" EmptyAlsoValidate="False">
+      <Validate AutoCorrect="True" Description="「量測日期」格式錯誤。" ErrorType="Error" Validator="合法日期" When=""/>
+    </Field>
+    <Field Required="True" Name="類別" Description="本筆量測紀錄之「類別」" EmptyAlsoValidate="False">
+    </Field>
+    <Field Required="True" Name="地點" Description="量測記錄之「地點」" EmptyAlsoValidate="False">
+    </Field>
+    <Field Required="True" Name="備註" Description="您可以為體溫紀錄註記相關說明">
+    </Field>
+  </FieldList>
+  <ValidatorList>
+    <FieldValidator Name="學號是否存在系統" Type="STUDENTNUMBEREXISTENCEBODY"/>
+    <FieldValidator Name="學號是否重覆" Type="STUDENTNUMBERREPEATBODY"/>
+    <FieldValidator Name="學號必須是一般生" Type="STUDENTNUMBERSTATUSBODY"/>
+    <FieldValidator Name="不可空白" Type="STRINGLENGTH">
+      <MinLength>1</MinLength>
+    </FieldValidator>
+    <FieldValidator Name="Integer極限" Type="Integer">
+      <MinValue>0</MinValue>
+      <MaxValue>2000000000</MaxValue>
+    </FieldValidator>
+    <FieldValidator Name="學期列舉" Type="Enumeration">
+      <Item Value="1"/>
+      <Item Value="2"/>
+    </FieldValidator>
+    <FieldValidator Name="Decimal極限" Type="DECIMAL">
+			<MinValue>0</MinValue>
+			<MaxValue>2000000000</MaxValue>
+		</FieldValidator>
+    <FieldValidator Name="對象列舉" Type="Enumeration">
+      <Item Value="老師"/>
+      <Item Value="學生"/>
+    </FieldValidator>
+    <FieldValidator Name="量測方式列舉" Type="Enumeration">
+      <Item Value="額溫"/>
+      <Item Value="耳溫"/>
+    </FieldValidator>
+    <FieldValidator Name="文字12" Type="STRINGLENGTH">
+      <MinLength>0</MinLength>
+      <MaxLength>12</MaxLength>
+    </FieldValidator>
+    <FieldValidator Name="合法日期" Type="MixDate">
+      <!-- Gregorian | Taiwan-->
+      <!-- Pattern 中需要 Year,Month,Day 三個 Group。-->
+      <!-- 2007/8/8 (年/月/日) -->
+      <!--  (?<Hour>[0-9]{1,2}):(?<Minute>[0-9]{1,2}) -->
+      <ValidPattern DateType="Gregorian">
+        <![CDATA[^(?<Year>[0-9]{4})/(?<Month>[0-9]{1,2})/(?<Day>[0-9]{1,2})$]]>
+      </ValidPattern>
+      <Matchs CorrectTo="yyyy/MM/dd">
+        <!-- 96/8/8 (年/月/日)-->
+        <Match DateType="Taiwan"><![CDATA[^(?<Year>1?[0-9]{2})/(?<Month>[0-9]{1,2})/(?<Day>[0-9]{1,2})$]]></Match>
+        <!-- 96-8-8 (年-月-日)-->
+        <Match DateType="Taiwan"><![CDATA[^(?<Year>1?[0-9]{2})-(?<Month>[0-9]{1,2})-(?<Day>[0-9]{1,2})$]]></Match>
+        <!-- 960808 (年月日)-->
+        <Match DateType="Taiwan"><![CDATA[^(?<Year>1?[0-9]{2})(?<Month>[0-9]{2})(?<Day>[0-9]{2})]]></Match>
+        <!-- 2007-8-8 (年/月/日)-->
+        <Match DateType="Gregorian"><![CDATA[^(?<Year>[0-9]{4})-(?<Month>[0-9]{1,2})-(?<Day>[0-9]{1,2})$]]></Match>
+        <!-- 8-8-2007 (月/日/年)-->
+        <Match DateType="Gregorian"><![CDATA[^(?<Month>[0-9]{1,2})-(?<Day>[0-9]{1,2})-(?<Year>[0-9]{4})$]]></Match>
+        <!-- 20070812 (年月日)-->
+        <Match DateType="Gregorian"><![CDATA[^(?<Year>[0-9]{4})(?<Month>[0-9]{2})(?<Day>[0-9]{2})$]]></Match>
+      </Matchs>
+    </FieldValidator>
+    <FieldValidator Name="多個英數字元" Type="Regex">
+      <ValidPattern>
+        <![CDATA[^[A-Za-z0-9]+$]]> <!-- 正規表示法 -->
+      </ValidPattern>
+    </FieldValidator>
+  </ValidatorList>
+  <ConditionList/>
+</ValidateRule>

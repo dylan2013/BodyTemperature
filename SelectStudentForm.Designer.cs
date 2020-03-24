@@ -443,7 +443,7 @@
             this.btnExit.AutoSize = true;
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnExit.Location = new System.Drawing.Point(671, 405);
+            this.btnExit.Location = new System.Drawing.Point(716, 405);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 25);
             this.btnExit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -540,7 +540,7 @@
             this.lbHelp.BackgroundStyle.Class = "";
             this.lbHelp.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbHelp.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lbHelp.Location = new System.Drawing.Point(539, 43);
+            this.lbHelp.Location = new System.Drawing.Point(525, 43);
             this.lbHelp.Name = "lbHelp";
             this.lbHelp.Size = new System.Drawing.Size(41, 68);
             this.lbHelp.TabIndex = 9;
@@ -576,7 +576,7 @@
             this.dataGridViewX1.RowHeadersVisible = false;
             this.dataGridViewX1.RowTemplate.Height = 27;
             this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX1.Size = new System.Drawing.Size(426, 240);
+            this.dataGridViewX1.Size = new System.Drawing.Size(471, 240);
             this.dataGridViewX1.TabIndex = 32;
             this.dataGridViewX1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewX1_CellMouseDoubleClick);
             this.dataGridViewX1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewX1_RowsAdded);
@@ -639,17 +639,17 @@
             // 
             this.lbHelp4.BackgroundStyle.Class = "";
             this.lbHelp4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbHelp4.Location = new System.Drawing.Point(322, 402);
+            this.lbHelp4.Location = new System.Drawing.Point(322, 404);
             this.lbHelp4.Name = "lbHelp4";
-            this.lbHelp4.Size = new System.Drawing.Size(177, 21);
+            this.lbHelp4.Size = new System.Drawing.Size(203, 21);
             this.lbHelp4.TabIndex = 33;
-            this.lbHelp4.Text = "*.雙擊資料行可修改體溫紀錄";
+            this.lbHelp4.Text = "*.雙擊資料行可手動修改體溫紀錄";
             // 
             // SelectStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 438);
+            this.ClientSize = new System.Drawing.Size(799, 438);
             this.Controls.Add(this.lbHelp4);
             this.Controls.Add(this.dataGridViewX1);
             this.Controls.Add(this.lbHelp);

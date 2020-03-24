@@ -79,5 +79,45 @@ namespace BodyTemperature.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   查詢類似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+        ///  &lt;xsl:template match=&quot;/&quot;&gt;
+        ///    &lt;xsl:variable name=&quot;error&quot;&gt;Error&lt;/xsl:variable&gt;
+        ///    &lt;xsl:variable name=&quot;warning&quot;&gt;Warning&lt;/xsl:variable&gt;
+        ///    &lt;xsl:variable name=&quot;true&quot;&gt;TRUE&lt;/xsl:variable&gt;
+        ///    &lt;xsl:variable name=&quot;false&quot;&gt;FALSE&lt;/xsl:variable&gt;
+        ///    &lt;xsl:variable name=&quot;smallcase&quot; select=&quot;&apos;abcdefghijklmnopqrstuvwxyz&apos;&quot; /&gt;
+        ///    &lt;xsl:variable name=&quot;uppercase&quot; select=&quot;&apos;ABCDEFGHIJKLMNOPQRSTUVWXYZ&apos;&quot; [字串的其餘部分已遭截斷]&quot;; 的當地語系化字串。
+        /// </summary>
+        internal static string format {
+            get {
+                return ResourceManager.GetString("format", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;format.xsl&quot; ?&gt;
+        ///&lt;ValidateRule&gt;
+        ///  &lt;DuplicateDetection&gt;
+        ///    &lt;Detector Name=&quot;PrimaryKey1&quot;&gt;
+        ///      &lt;Field Name=&quot;學號&quot;/&gt;
+        ///      &lt;Field Name=&quot;學年度&quot;/&gt;
+        ///      &lt;Field Name=&quot;競賽名稱&quot;/&gt;
+        ///      &lt;Field Name=&quot;備註&quot;/&gt;
+        ///    &lt;/Detector&gt;
+        ///  &lt;/DuplicateDetection&gt;
+        ///  &lt;FieldList&gt;
+        ///    &lt;Field Required=&quot;True&quot; Name=&quot;學號&quot; Description=&quot;學生的學號&quot;&gt;
+        ///      &lt;Validate AutoCorrect=&quot;False&quot; Description=&quot;「學號」不允許空白。&quot; ErrorType=&quot;Error&quot; Validator=&quot;不可空白&quot; When=&quot;&quot;/&gt;
+        ///      &lt;Vali [字串的其餘部分已遭截斷]&quot;; 的當地語系化字串。
+        /// </summary>
+        internal static string ImportBodyTmperatureRule {
+            get {
+                return ResourceManager.GetString("ImportBodyTmperatureRule", resourceCulture);
+            }
+        }
     }
 }
