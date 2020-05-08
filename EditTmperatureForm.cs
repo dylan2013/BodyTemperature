@@ -97,6 +97,9 @@ namespace BodyTemperature
 
             cbLocation.Text = _BT.Location;
             tbRemark.Text = _BT.Remark;
+            
+            //量測日期
+            dateTimeInput1.Value = _BT.OccurDate;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

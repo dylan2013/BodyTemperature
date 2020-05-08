@@ -45,10 +45,12 @@ namespace BodyTemperature
             btnSelect.Enabled = false;
             btnSave.Enabled = false;
 
-            this.Text = "快速體溫登錄(資料下載中)";
+            this.Text = "快速體溫登錄(學生資料與照片下載中)";
             cbCategory.Enabled = false;
             cbLocation.Enabled = false;
             dataGridViewX1.Enabled = false;
+            tbRemark.Enabled = false;
+            dateTimeInput1.Enabled = false;
 
             dateTimeInput1.Value = DateTime.Now;
         }
@@ -91,10 +93,11 @@ from student join class on student.ref_class_id=class.id where student.status='1
         private void Bgw_Load_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.Text = "快速體溫登錄";
-
             cbCategory.Enabled = true;
             cbLocation.Enabled = true;
             dataGridViewX1.Enabled = true;
+            tbRemark.Enabled = true;
+            dateTimeInput1.Enabled = true;
 
             if (!e.Cancelled)
             {
