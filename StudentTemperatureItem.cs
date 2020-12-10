@@ -28,10 +28,13 @@ namespace BodyTemperature
             BGW.DoWork += BGW_DoWork;
             BGW.RunWorkerCompleted += BGW_RunWorkerCompleted;
 
-            FISCA.Features.Register(tool.URL學生體溫記錄, arg =>
+            if (!tool.CheckFeature(tool.URL學生體溫記錄))
             {
-                BGW.RunWorkerAsync();
-            });
+                FISCA.Features.Register(tool.URL學生體溫記錄, arg =>
+                {
+                    BGW.RunWorkerAsync();
+                });
+            }
         }
 
         private void BGW_DoWork(object sender, DoWorkEventArgs e)
